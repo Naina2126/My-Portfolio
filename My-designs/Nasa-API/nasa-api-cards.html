@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function bodyLoad(){
+            fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=D3HZmXH05DFAlkYhctKbX7z0ctr4oc5KuXyEcx2U')
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(marsObject){
+                marsObject.photos.map(function(item){
+                    var card = document.createElement("div");
+                    card.className = "card m-2 p-2";
+                    card.style.width = "200px";
+                    card.innerHTML = `<img src=${item.img_src} class="card-img-top" height="150">
+                    <div class="card-header">
+                        <h4>${item.id}</h4>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt class="bi bi-camera">Camera</dt>
+                            <dd>${item.camera.full_name}</dd>
+                            <dt class="bi bi-rocket">Rover</dt>
+                            <dd>${item.rover.name}</dd>
+                        </dl>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href=${item.img_src} target="_blank" class="btn bi bi-eye btn-warning"><span>View</span></a>
+                    </div>
+                    `;
+
+                    document.querySelector("section").appendChild(card);
+                })
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyLoad()">
+    <h2>Mars Rover Photos</h2>
+    <section class="d-flex flex-wrap">
+
+    </section>
+</body>
+</html>

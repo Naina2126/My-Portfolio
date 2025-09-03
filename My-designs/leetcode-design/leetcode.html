@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        header{
+            font-family: monospace;
+            display:flex;
+            font-size: 16px;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgb(228, 227, 227);
+        }
+        body{
+            background-color: rgb(243, 247, 247);
+        }
+        header span{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .js{
+            background-color: goldenrod;
+            padding: 2px;
+            border-radius:5px;
+            color: white;
+        }
+        .btn-premium{
+            background-color: rgb(245, 226, 124);
+            color: red;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        .bi-play, .bi-bug, .bi-cloud-arrow-up, .bi-file{
+            background-color: rgb(210, 207, 207);
+            color: gray;
+            padding: 5px;
+            border-radius: 2px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .bi-cloud-arrow-up{
+            color: green;
+        }
+        .bi-chevron-left, .bi-chevron-right, .bi-shuffle, .bi-gear, .bi-columns-gap, .bi-play, .bi-file-earmark{
+            color: gray;
+        }
+        section{
+            height: 500px;
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            grid-gap:10px;
+            margin-top: 10px;
+        }
+        .panel-left, .panel-right{
+            background-color: rgb(248, 244, 244);
+            border-radius: 5px;
+            overflow: auto;
+            height: 500px;
+            font-family: arial;
+            padding: 10px;
+        }
+        h1{
+            font-family: monospace;
+            font-size: 22px;
+        }
+        .btn-easy, .bi-lock{
+            background-color: rgb(228,227,227);
+            padding: 5px;
+            border-radius: 5px;
+            color: darkcyan;
+        }
+        samp{
+            background-color: rgb(228, 227, 227);
+            padding: 5px;
+        }
+        p{
+            line-height: 30px;
+        }
+        dt{
+            font-weight: bold;
+        }
+        .left-panel-header{
+            padding-right: 10px;
+        }
+        ol li{
+            color: darkcyan;
+            line-height: 25px;
+        }
+        var{
+            color: green;
+        }
+        .var{
+            color: blue;
+        }
+        .code{
+            color:green;
+        }
+        .return{
+            color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span class="js">JS</span>
+            <span>30 days of Javascript</span>
+            <span class="bi bi-chevron-left"></span>
+            <span class="bi bi-chevron-right"></span>
+            <span class="bi bi-shuffle"></span>
+        </div>
+        <div>
+            <span class="bi bi-bug"></span>
+            <span class="bi bi-play-fill">Run</span>
+            <span class="bi bi-cloud-arrow-up">Submit</span>
+            <span class="bi bi-file-earmark"></span>
+        </div>
+        <div>
+            <span class="bi bi-columns-gap"></span>
+            <span class="bi bi-gear"></span>
+            <span>Register or Sign in </span>
+            <span class="btn-premium">Premium</span>
+        </div>
+    </header>
+
+    <section>
+        <div class="panel-left">
+            <div class="left-panel-header">
+                <span class="bi bi-file-binary">Description</span>
+                <span class="bi bi-book">Editorial</span>
+                <span class="fa fa-flask">Solutions</span>
+                <span class="bi bi-clock-history">Submissions</span>
+            </div>
+            <div>
+                <span class="bi bi-fullscreen"></span>
+            </div>
+
+            <h1>2667. Create Hello World Function</h1>
+            <div>
+                <span class="btn-easy">Easy</span>
+                <span class="bi bi-lock">Companies</span>
+            </div>
+            <div>
+                <p>Write a function <samp>createHelloWorld</samp>. It should return a new function that always returns <samp>"Hello World".</samp>
+                </p>
+            </div>
+            <div>
+                <dl>
+                    <dt>Example 1:</dt>
+                    <dd>
+                        <pre>Input: args = []
+Output: "Hello World"
+Explanation:
+const f = createHelloWorld();
+f(); // "Hello World"
+                            
+The function returned by createHelloWorld should always return "Hello World".
+                        </pre>
+                    </dd>
+                    <dt>Example 2:</dt>
+                    <dd>
+                        <pre>Input: args = [{},null,42]
+Output: "Hello World"
+Explanation:
+const f = createHelloWorld();
+f({}, null, 42); // "Hello World"
+
+Any arguments could be passed to the function but it should still always return "Hello World".
+                        </pre>
+                    </dd>
+                    <dt>Constraints</dt>
+                </dl>
+            </div>
+        </div>
+        <div class="panel-right">
+            <ol>
+                <code>
+                <li><span class="code">/**</span></li>
+                <li><span class="code">*</span><span class="var">@return</span> <span>{Function}</span></li>
+                <li class="code">*/</li>
+                <li><span class="var">var</span> <var>createHelloWorld</var> = <span class="var">function()</span><span>{</span></li>
+                <li></li>
+                <li> <span class="return">return</span> <span class="var">function(...args)</span> {</li>
+                <li></li>
+                <li><span class="code">}</span></li>
+                <li><span class="code">};</span></li>
+                <li></li>
+                <li><span class="code">/**</span></li>
+                <li><span class="code">* const f = createHelloWorld();</span></li>
+                <li><span class="code">* f(); // "Hello World"</span></li>
+                <li><span class="code">*/</span></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                </code>
+            </ol>
+        </div>
+    </section>
+</body>
+</html>

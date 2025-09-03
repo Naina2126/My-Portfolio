@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .ellipse{
+            width: 300px;
+            height: 100px;
+            border-radius: 50%;
+            border: 10px solid black;
+            transition-duration: 5s;
+            background-color: red;
+            transition-timing-function: steps(5);
+            transform: skew(0deg);
+        }
+        .ellipse:hover{
+            width: 300px;
+            height: 300px;
+            transition-duration: 10s;
+            transition-property: width, height;
+            background-color: yellow;
+            transition-timing-function: steps(10);
+            transform: skew(20deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="ellipse"></div>
+</body>
+</html>

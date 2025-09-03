@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../assets/js/emi.js"></script>
+</head>
+<body class="container-fluid bg-secondary">
+    <div class="bg-light p-4 m-4">
+        <h4 class="text-center">Personal Loan EMI Calculator</h4>
+        <div class="row my-3">
+            <div class="col">
+                Amount you need &#8377;
+                <input onchange="TextAmountChange()" type="text" id="txtAmount" size="16">
+            </div>
+
+            <div class="col">
+                for<input type="text" id="txtYears" size="2">years
+            </div>
+
+            <div class="col">
+                interest rate <input type="text" id="txtRate" size="2">
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col">
+                <input type="range" step="1000" onchange="AmountChange()" min="100000" id="rangeAmount" max="1000000" value="100000" class="form-range">
+                <div>
+                    <span>&#8377; 1,00,000</span>
+                    <span class="float-end">&#8377; 10,00,000</span>
+                </div>
+            </div>
+
+            <div class="col">
+                <input type="range" onchange="YearsChange()" min="1" id="rangeYears" max="5" value="1" class="form-range">
+                <div>
+                    <span>&#8377; 1</span>
+                    <span class="float-end">&#8377; 5</span>
+                </div>
+            </div>
+
+            <div class="col">
+                <input type="range" step="0.01" onchange="RateChange()" min="10.45" id="rangeRate" max="18.45" value="10.45" class="form-range">
+                <div>
+                    <span>&#8377; 10.45%</span>
+                    <span class="float-end">&#8377; 18.45%</span>
+                </div>
+            </div>
+        </div>
+
+       <div class="my-3">
+        <div class="col text-end">
+            <button onclick="CalculateClick()" class="btn btn-primary">Calculate</button>
+        </div>
+       </div>
+
+       <div class="my-3">
+        <div id="msg" class="fs-5 text-center"></div>
+       </div>
+    </div>
+</body>
+</html>

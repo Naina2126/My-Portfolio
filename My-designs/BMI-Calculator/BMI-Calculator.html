@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CalCulator</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../assets/js/bmi.js"></script>
+</head>
+<body class="container-fluid">
+    <h3 class="text-center">BMI CALCULATOR</h3>
+    <div class="mt-4 h-25 w-100" style="background-color: rgb(143, 133, 133);">
+
+        <div class="d-flex justify-content-evenly text-light p-3">
+            <div class="me-4">Gender</div>
+            <div style="margin-right: 50px;"><input type="radio"><span class="p-1">Male</span>
+            <input type="radio"><span class="p-1">Female</span></div>
+        </div>
+
+
+        <div class="d-flex justify-content-evenly p-3 text-light">
+            <div>Age</div>
+            <div class="pe-4"><input type="number" id="txtAge" class="text-center ms-3"></div>
+        </div>
+
+        <div class="d-flex justify-content-evenly p-3 text-light">
+            <div>Height</div>
+            <div class=" pe-4"><input type="number" id="txtHeight" placeholder="cm" class="text-center"></div>
+        </div>
+
+        <div class="d-flex text-light justify-content-evenly p-3">
+            <div>Weight</div>
+            <div class=" pe-4"><input type="number" id="txtWeight" placeholder="kg" class="text-center"></div>
+        </div>
+    </div>
+    <div class="w-50 mt-3" style="margin-left: 270px;">
+        <div class="progress w-100 mt-3">
+            <div class="progress-bar bg-secondary w-25"></div>
+            <div class="progress-bar bg-success w-25 mx-2"></div>
+            <div class="progress-bar bg-warning w-25"></div>
+            <div class="progress-bar bg-danger w-25 ms-2"></div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <span>UnderWeight</span>
+            <span>Normal</span>
+            <span>Overweight</span>
+            <span>Obese</span>
+        </div>
+    </div>
+   
+    <div class="row mt-4 ps-3 w-100" style="margin: 170px;">
+        <button onclick="BMICalculate()" class="col-2 p-4 bg-secondary me-4 ms-4 text-light" style="border: none; color: white;">Calculate</button>
+        <div class="col-5 p-4 ms-4" style="background-color: rgb(231, 237, 231);"><span id="BmiValue"></span></div>
+    </div>
+</body>
+</html>

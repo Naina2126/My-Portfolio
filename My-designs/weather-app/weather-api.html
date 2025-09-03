@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .app{
+            border: 1px solid gray;
+            box-shadow: 3px 3px 2px black;
+            width: 600px;
+            height: 300px;
+            background-image: url("../../assets/img/weather.jpg");
+            background-size: cover;
+            padding: 20px;
+        }
+        #lblTemp{
+            text-shadow: 2px 2px 2px black;
+        }
+    </style>
+
+    <script>
+        function GetWeather(city){
+            document.getElementById("detailsContainer").style.display = "block";
+             var cityname = city;
+             var api_key = "1ee4f89e87bf3f944f52f6986c4468a1";
+             var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${api_key}&units=metric`; 
+
+             fetch(url)
+             .then(function(response){
+                return response.json();
+             })
+             .then(function(data){
+                //data.name = gets city name
+                //data.main.temp = gets temp
+                //data.weather[0].description = clouds,clear sky
+                //data.wind.speed = wind speed
+                //data.main.humidity = gets humidity
+
+                document.getElementById("lblCity").innerHTML = `${data.name}-${data.weather[0].description}`.toUpperCase();
+                document.getElementById("lblTemp").innerHTML = `${data.main.temp}&deg;`;
+                document.getElementById("lblWind").innerHTML = `${data.wind.speed}`;
+                document.getElementById("lblHumid").innerHTML = `${data.main.humidity}`;
+             })
+        }
+
+        function SearchClick(){
+            GetWeather(document.getElementById('txtCity').value);
+            document.getElementById("lstCities").value = document.getElementById("txtCity").value;
+        }
+
+        function CityChange(){
+            GetWeather(document.getElementById("lstCities").value);
+            document.getElementById("txtCity").value  = document.getElementById("lstCities").value;
+        }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="app">
+        <div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter your city name" class="form-control" id="txtCity">
+                <button onclick="SearchClick()"  class="bi bi-search btn btn-warning"></button>
+            </div>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <label class="form-label fw-bold text-white">Select City</label>
+                    <div>
+                        <select onchange="CityChange()" id="lstCities" class="form-select">
+                            <option>Choose City</option>
+                            <option>Delhi</option>
+                            <option>Hyderabad</option>
+                            <option>Chennai</option>
+                            <option>Mumbai</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div id="detailsContainer" style="display: none;">
+                        <div class="mt-2">
+                            <h4 id="lblCity" class="text-white"></h4>
+                        </div>
+
+                        <div class="mt-2">
+                            <span id="lblTemp" class="fs-2 text-white fw-bold"></span>
+                        </div>
+
+                        <div class="mt-2">
+                            <span id="lblWind" class="bi bi-speedometer text-white fs-4"></span>
+                        </div>
+
+                        <div class="mt-2">
+                            <span id="lblHumid" class="bi bi-thermometer text-white fs-4"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
